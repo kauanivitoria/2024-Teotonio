@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Grey+Qo&family=Gupter:wght@400;500;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+:root{
+    --platina: #d8e2dcff;
+    --champanhe-rosa: #ffe5d9ff;
+    --rosa: #ffcad4ff;
+    --flordecerejeira: #f4acb7ff;
+    --mountbatten-rosa: #9d8189ff;
+    --fonte-titulo: "Grey Qo", cursive;
+    --fonte-texto: "Gupter", serif;
+}
