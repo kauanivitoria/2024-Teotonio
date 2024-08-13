@@ -16,3 +16,12 @@
     --fonte-titulo: "Grey Qo", cursive;
     --fonte-texto: "Gupter", serif;
 }
+
+body{
+    background-color: var(--flordecerejeira);
+    color: var(--champanhe-rosa);
+    display: flex;
+    justify-content: center;
+    min-width: 100vh;
+    font-family: var(--fonte-texto);
+}
