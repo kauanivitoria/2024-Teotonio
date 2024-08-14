@@ -25,3 +25,16 @@ body{
     min-width: 100vh;
     font-family: var(--fonte-texto);
 }
+
+.caixaPrincipal{
+    background-color: var(--platina);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px;
+}
+
+.titulo{
+    color: var(--flordecerejeira);
+    font-family: var(--fonte-titulo);
+}
