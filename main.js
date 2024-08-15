@@ -9,90 +9,109 @@ const perguntas = [
         enunciado: "texto01",
         alternativas: [
             {
-                texto: "alternativa01",
-                afirmacao: "afirmacao01"
+                texto:'alternativa01',
+                afirmacao: 'afirmação01'
             },
             {
-                texto: "alternativa02",
-                afirmacao: "afirmacao02"
+                texto:'alternativa02',
+                afirmacao: 'afirmação02'
             }
+            
         ]
     },
     {
         enunciado: "texto02",
         alternativas: [
             {
-                texto: "alternativa03",
-                afirmacao: "afirmacao03"
+                texto:'alternativa03',
+                afirmacao: 'afirmação03'
             },
             {
-                texto: "alternativa04",
-                afirmacao: "afirmacao04"
+                texto:'alternativa04',
+                afirmacao: 'afirmação04'
             }
+            
         ]
     },
     {
         enunciado: "texto03",
         alternativas: [
             {
-                texto: "alternativa05",
-                afirmacao: "afirmacao05"
+                texto:'alternativa05',
+                afirmacao: 'afirmação05'
             },
             {
-                texto: "alternativa06",
-                afirmacao: "afirmacao06"
+                texto:'alternativa06',
+                afirmacao: 'afirmação06'
             }
+            
         ]
     },
     {
         enunciado: "texto04",
         alternativas: [
             {
-                texto: "alternativa07",
-                afirmacao: "afirmacao07"
+                texto:'alternativa07',
+                afirmacao: 'afirmação07'
             },
             {
-                texto: "alternativa08",
-                afirmacao: "afirmacao08"
+                texto:'alternativa08',
+                afirmacao: 'afirmação08'
             }
+            
         ]
     },
     {
         enunciado: "texto05",
         alternativas: [
             {
-                texto: "alternativa09",
-                afirmacao: "afirmacao09"
+                texto:'alternativa09',
+                afirmacao: 'afirmação09'
             },
             {
-                texto: "alternativa10",
-                afirmacao: "afirmacao10"
+                texto:'alternativa10',
+                afirmacao: 'afirmação10'
             }
+            
         ]
-    }
-]
+     }
+    ]
 
 let atual = 0;
 let perguntaAtual;
-let historiaFinal = "";
+let historiaFinal = '';
 
 function mostraPergunta(){
+    if(atual >= perguntas.length){
+        mostraResultado();
+        return;
+    }
     perguntaAtual = perguntas[atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = '';
     mostraAlternativas();
 }
 
+
 function mostraAlternativas(){
     for( const alternativa of perguntaAtual.alternativas){
-        const botaoAlternativas = document.createElement('button')
+        const botaoAlternativas = document.createElement('button');
         botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener('click',function(){
-            atual++;
-            mostraPergunta();
-        })
-        caixaAlternativas.appendChild(botaoAlternativas);
+        botaoAlternativas.addEventListener('click', () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativas)
+        }
     }
-}
+    function respostaSelecionada(opcaoSelecionada) {
+        const afirmacao = opcaoSelecionada.afirmacao;
+        historiaFinal += afirmacao + ' ';
+        atual++;
+        mostraPergunta()
+    }
 
+    function mostraResultado(){
+        caixaPerguntas.textContent = ' Início do texto...'
+        textoResultado.textContent = historiaFinal;
+        caixaAlternativas.textContent = '';
+    }
 
 mostraPergunta();
